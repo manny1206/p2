@@ -15,15 +15,15 @@ public abstract class SymmetricCipher extends Cipher{
             return i;
         }
     }
-    public int rotate(int index, int shift) {
-        if (shift > 0) {
+    public int rotate(int index, int shift) {//rotate an index shift times to its new valid index
+        if (shift > 0) {//if your moving it forward
             while (shift > 0) {
                 if(index + 1 < alphabet.length()){ index++;}
                 else {index = 0;}
                 shift--;
             }
         }
-        else if (shift < 0) {
+        else if (shift < 0) {//if your moving it backwards
             while (shift < 0) {
                 if (index - 1 > -1) {index--;}
                 else {index = alphabet.length() - 1;}
