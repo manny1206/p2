@@ -8,17 +8,17 @@ public class Alphabet {
     this.symbols = symbols;
   }
 
-  public int indexOf(char c) {
+  public int indexOf(char c) { //returns index in alphabet of a char
     if (symbols.indexOf(c) == -1) {
-      throw new MissingCharAlphabetException();
+      throw new MissingCharAlphabetException(c, this);
     } else {
       return symbols.indexOf(c);
     }
   }
 
-  public char get(int i) { //return char at position i in alphabet
+  public char get(int i) { //return char at index i in alphabet
     if (symbols.charAt(i) < 0 || symbols.charAt(i) > symbols.length()) {
-      throw new BadIndexAlphabetException();
+      throw new BadIndexAlphabetException(i,this);
     } else {
       return symbols.charAt(i);
     }
