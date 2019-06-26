@@ -7,8 +7,8 @@
   *  demo$ java  -cp .:junit-cs211.jar P3Tests    # run tests
   * 
   * On windows replace : with ; (colon with semicolon)
-  *  demo$ javac -cp .;junit-cs211.jar *.java     # compile everything
-  *  demo$ java  -cp .;junit-cs211.jar P3Tests    # run tests
+  *  demo$ javac -cp .;junit-4.12.jar *.java     # compile everything
+  *  demo$ java  -cp .;junit-4.12.jar P2Tests    # run tests
   */
 
 import org.junit.*;
