@@ -12,30 +12,24 @@ public class VigenereCipher extends SymmetricCipher{
     }
     public String getPassword(){ return password; }
     protected char encrypt1(char c){
-        int newchar = rotate(alphabet.indexOf(c), alphabet.indexOf(password.charAt(passwordPos)));//shift by password index in alphabet
-        passwordPos = rotate(passwordPos,1);
-        return alphabet.get(newchar);
+        int newindex = rotate(alphabet.indexOf(c),alphabet.indexOf(password.charAt(passwordPos)));//add old index & password index
+        if (passwordPos + 1 == password.length()){//increment passwordPos
+            passwordPos = 0;
+        }else{passwordPos++;}
+        return alphabet.get(newindex);
     }
     protected char decrypt1(char c) {
-        int oldchar = rotate(alphabet.indexOf(c), -alphabet.indexOf(password.charAt(passwordPos)));
-        passwordPos = rotate(passwordPos,-1);
-        return alphabet.get(oldchar);
+        int oldindex = rotate(alphabet.indexOf(c), -alphabet.indexOf(password.charAt(passwordPos)));
+        if (passwordPos + 1 == password.length()){//increment passwordPos
+            passwordPos = 0;
+        }else{passwordPos++;}
+        return alphabet.get(oldindex);
     }
     public String encrypt(String s){
-        passwordPos = 0;
-        String newstring = "";
-        for (int i = 0;i < s.length();i++){
-            newstring += encrypt1(s.charAt(i));
-        }
-        return newstring;
+        return super.encrypt(s);
     }
     public String decrypt(String s){
-        passwordPos = password.length() - 1;
-        String oldstring = "";
-        for (int i = s.length() - 1;i > -1;i--){
-            oldstring += decrypt1(s.charAt(i));
-        }
-        return oldstring;
+        return super.decrypt(s);
     }
     public String toString(){
         return ("Vigenere Cipher (password='" + password + "')");
