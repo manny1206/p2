@@ -22,7 +22,7 @@ class MorseCipher extends Cipher{
    boolean did3space = false;
    for (int i = 0; i < plaintext.length(); i++){
        if (Character.isWhitespace(plaintext.charAt(i))){// check if plaintext at i is a space
-           if (did3space != true){cryptText += "       ";} // add 7 spaces cuz new word
+           if (did3space != true) {cryptText += "       ";} // add 7 spaces cuz new word
            else{cryptText += "    ";} // if you already did 3 spaces, only add 4 more
            did3space = false;
        }

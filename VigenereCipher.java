@@ -12,14 +12,14 @@ public class VigenereCipher extends SymmetricCipher{
     }
     public String getPassword(){ return password; }
     protected char encrypt1(char c){
-        int newindex = rotate(alphabet.indexOf(c), alphabet.indexOf(password.charAt(passwordPos)));
+        int newchar = rotate(alphabet.indexOf(c), alphabet.indexOf(password.charAt(passwordPos)));//shift by password index in alphabet
         passwordPos = rotate(passwordPos,1);
-        return alphabet.get(newindex);
+        return alphabet.get(newchar);
     }
     protected char decrypt1(char c) {
-        int oldindex = rotate(alphabet.indexOf(c), -alphabet.indexOf(password.charAt(passwordPos)));
+        int oldchar = rotate(alphabet.indexOf(c), -alphabet.indexOf(password.charAt(passwordPos)));
         passwordPos = rotate(passwordPos,-1);
-        return alphabet.get(oldindex);
+        return alphabet.get(oldchar);
     }
     public String encrypt(String s){
         passwordPos = 0;
