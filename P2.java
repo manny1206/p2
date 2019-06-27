@@ -1,5 +1,5 @@
 public class P2 {
-  
+  //lol i dont know what this is
   public static void main(String[] args){
     String recovered = "HELLOTHERE";
     if (args.length>0){ recovered = args[0];}

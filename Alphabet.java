@@ -24,7 +24,7 @@ public class Alphabet {
     }
   }
 
-  public int length() {
+  public int length() {//gives the length for alphabets
     return symbols.length();
   }
 

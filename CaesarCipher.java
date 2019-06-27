@@ -38,5 +38,5 @@ public class CaesarCipher extends SymmetricCipher{
     }
     public String toString(){
         return ("Caesar Cipher (shift=" + shift + ")");
-    }
+    }//makes a string
 }
