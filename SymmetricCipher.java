@@ -41,22 +41,24 @@ public abstract class SymmetricCipher extends Cipher{
 
     public String encrypt(String s) {
         char[] changestring = s.toCharArray();
+        String newS = "";
         for (int i = 0;i < changestring.length;i++) {
-            if (alphabet.toString().contains(String.valueOf(changestring[i])) == false){//checks if a char is in the string, throw exception if false
+            if (!alphabet.toString().contains(String.valueOf(changestring[i]))){//checks if char is in the alphabet, throw exception if false
                 throw new MissingCharAlphabetException(changestring[i],alphabet);
             }
-            encrypt1(changestring[i]);//calls encrypt1 to encrypt each char
+            newS += encrypt1(changestring[i]);//calls encrypt1 to encrypt each char
         }
-        return s = String.valueOf(changestring);
+        return newS;
     }
     public String decrypt(String s) {//same as encrypt but reversed
         char[] changestring = s.toCharArray();
-        for (int i = changestring.length - 1;i > -1;i--) {
-            if (alphabet.toString().contains(String.valueOf(changestring[i])) == false){//checks if a char is in the string, throw exception if false
+        String newS = "";
+        for (int i = 0;i < changestring.length;i++) {
+            if (!alphabet.toString().contains(String.valueOf(changestring[i]))){//checks if char is in the alphabet, throw exception if false
                 throw new MissingCharAlphabetException(changestring[i],alphabet);
             }
-            decrypt1(changestring[i]);//calls decrypt1 to revert each char
+            newS += decrypt1(changestring[i]);//calls decrypt1 to revert each char
         }
-        return s = String.valueOf(changestring);
+        return newS;
     }
 }

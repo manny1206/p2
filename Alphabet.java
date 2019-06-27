@@ -17,7 +17,7 @@ public class Alphabet {
   }
 
   public char get(int i) { //return char at index i in alphabet
-    if (symbols.charAt(i) < 0 || symbols.charAt(i) > symbols.length()) {
+    if (i < 0 || i > symbols.length()) {
       throw new BadIndexAlphabetException(i,this);
     } else {
       return symbols.charAt(i);
