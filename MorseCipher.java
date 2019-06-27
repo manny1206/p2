@@ -45,20 +45,20 @@ class MorseCipher extends Cipher{
           if (Character.isWhitespace(cryptText.charAt(i))){// check if cryptText at i is a space
               //removing the spaces
               if (i + 6 < cryptText.length()) {// if it's a new word
-                  if (cryptText.substring(i,i + 7) == "       "){
+                  if (cryptText.substring(i,i + 7).equals("       ")){
                       plainText += " ";
                       i += 6;
                   }
               }
               else if (i + 2 < cryptText.length()) {// skip normal space between letters
-                  if (cryptText.substring(i,i + 3) == "   "){
+                  if (cryptText.substring(i,i + 3).equals("   ")){
                       i += 2;
                   }
               }
 
           }
           else{
-              letterCheck += cryptText.charAt(i);//add non-spaces to letterCheck
+              letterCheck += cryptText.charAt(i);//add non-spaces to letterChecks
           }
           if (letterCheck != "" && (i + 1 == cryptText.length() || Character.isWhitespace(cryptText.charAt(i + 1)))){
               for (int j = 0;j < codes.length;j++){
